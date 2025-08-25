@@ -13,6 +13,33 @@
     bottom: 45px;
     z-index: 99;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* avoids unwanted horizontal scroll */
+}
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.header .col-md-6 {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.header h1 {
+    margin-bottom: 0 !important;
+}
+
+.header .breadcrumb {
+    margin-bottom: 0 !important;
+}
+
+.container-fluid.bg-primary {
+    margin-top: 0 !important;
+}
 
 
 /*** Spinner ***/
@@ -29,6 +56,54 @@
     opacity: 1;
 }
 
+/* AboutUs  */
+.feature-card {
+    background: var(--light);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 12px rgba(0, 185, 142, 0.3); /* green glow */
+}
+.feature-icon {
+    color: var(--primary);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.feature-card:hover .feature-icon {
+    transform: scale(1.2);
+    color: var(--primary);
+}
+/* services sec  */
+.service-img {
+    width: 100%;
+    height: 250px; /* adjust as per design */
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hover effect similar to Property cards */
+.service-item {
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.service-item:hover {
+    /* border-color: var(--primary); */
+    transform: translateY(-5px);
+}
+.service-item h5:hover {
+    /* border-color: var(--primary); */
+    color: var(--primary);
+   
+}
 
 /*** Button ***/
 .btn {
@@ -162,6 +237,31 @@
 
 
 /*** Header ***/
+.header {
+    position: relative;
+    height: 100vh; /* full screen height */
+    overflow: hidden;
+}
+
+.header .owl-carousel-item img {
+    object-fit: cover;
+    height: 100vh;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* dark overlay for text readability */
+}
+
+.carousel-caption h1, 
+.carousel-caption p {
+    color: #fff; /* text white */
+}
+
 @media (min-width: 992px) {
     .header {
         margin-top: -120px;
@@ -189,7 +289,7 @@
     background: var(--primary);
     border-radius: 40px;
     font-size: 20px;
-    transition: .5s;
+    transition: .3s;
 }
 
 .header-carousel .owl-nav .owl-prev:hover,
@@ -221,6 +321,17 @@
 
 
 /*** About ***/
+/* About Us header */
+.about-page .header {
+    height: auto !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+/* force header to shrink to content */
+.header {
+    height: auto !important;
+}
+
 .about-img img {
     position: relative;
     z-index: 2;
@@ -318,6 +429,89 @@
 
 .team-item:hover .bg-primary i {
     color: var(--secondary) !important;
+}
+/* Gallery  */
+.gallery-img {
+    width: 100%;
+    height: 280px; /* keep consistent size */
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 46, 80, 0.7); /* dark blue overlay */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: center;
+}
+
+.gallery-overlay h5 {
+    color: var(--light);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+/* Gallery Hover Overlay */
+.gallery-img {
+  position: relative;
+}
+
+.gallery-img img {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-img .after-img {
+  opacity: 0;
+}
+
+.gallery-img:hover .after-img {
+  opacity: 1;
+}
+
+.gallery-img:hover .before-img {
+  opacity: 0;
+}
+
+.gallery-img {
+    height: 280px;
+}
+.gallery-img img {
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.gallery-img:hover img {
+    transform: scale(1.1);
+}
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 227, 176, 0.7); /* matches your --primary */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.gallery-img:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Hover Animations */
+.gallery-img:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.gallery-img:hover .gallery-overlay {
+    opacity: 1;
 }
 
 
@@ -438,3 +632,92 @@
     padding-right: 0;
     border-right: none;
 }
+/* <!-- WhatsApp Chat Widget Start --> */
+
+  .whatsapp-widget {
+    position: fixed;
+    bottom: 100px; /* moved up a bit */
+    right: 43px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Floating Button */
+  .whatsapp-button {
+    background-color: #25d366;
+    width: 50px;   /* bigger */
+    height: 50px;  /* bigger */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .whatsapp-button:hover {
+    transform: scale(1.1);
+    background-color: #20b358;
+  }
+  .whatsapp-button img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Chat Box */
+  .whatsapp-box {
+    display: none;
+    position: absolute;
+    bottom: 90px; /* adjusted for bigger button */
+    right: 0;
+    width: 320px; /* slightly bigger */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    overflow: hidden;
+  }
+
+  .whatsapp-header {
+    background: #0a5f54;
+    color: white;
+    padding: 18px;
+  }
+  .whatsapp-header h5 {
+    margin: 0;
+    font-size: 18px; /* bigger */
+    color: white;
+  }
+  .whatsapp-header small {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .whatsapp-body {
+    padding: 18px;
+    font-size: 15px;
+    color: #333;
+    background: #f9f9f9;
+  }
+
+  .whatsapp-body p {
+    margin: 0 0 12px;
+  }
+
+  .whatsapp-footer {
+    text-align: center;
+    padding: 12px;
+  }
+
+  .whatsapp-footer a {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .whatsapp-footer a:hover {
+    background: #20b358;
+  }
